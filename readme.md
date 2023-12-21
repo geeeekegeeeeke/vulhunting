@@ -1,36 +1,33 @@
-package main
+# vulhunting
 
-import (
-	"github.com/projectdiscovery/gologger"
-	"github.com/projectdiscovery/katana/pkg/engine/standard"
-	"github.com/projectdiscovery/katana/pkg/output"
-	"github.com/projectdiscovery/katana/pkg/types"
-)
+#### 介绍
 
-func main() {
-	options := &types.Options{
-		MaxDepth:     1,               // Maximum depth to crawl
-		FieldScope:   "rdn",           // Crawling Scope Field
-		BodyReadSize: 2 * 1024 * 1024, // Maximum response size to read
-		RateLimit:    150,             // Maximum requests to send per second
-		Strategy:     "depth-first",   // Visit strategy (depth-first, breadth-first)
-		OnResult: func(result output.Result) { // Callback function to execute for result
-			gologger.Info().Msg(result.Request.URL)
-		},
-	}
-	crawlerOptions, err := types.NewCrawlerOptions(options)
-	if err != nil {
-		gologger.Fatal().Msg(err.Error())
-	}
-	defer crawlerOptions.Close()
-	crawler, err := standard.New(crawlerOptions)
-	if err != nil {
-		gologger.Fatal().Msg(err.Error())
-	}
-	defer crawler.Close()
-	var input = "https://tesla.com"
-	err = crawler.Crawl(input)
-	if err != nil {
-		gologger.Warning().Msgf("Could not crawl %s: %s", input, err.Error())
-	}
-}
+使用go代码写一些漏洞测试的案例，包括借鉴 osv-scanner trivy Jie nuclei等等的开源项目，
+解决一类的写法，解决不同平台的笔记的md的文档的使用方法和标准化的流程的是训练和实现
+
+#### 软件架构
+
+
+
+#### 安装教程
+
+1. go env
+2. make build
+3
+
+#### 使用说明
+
+1.  xxxx
+2.  xxxx
+3.  xxxx
+
+#### 参与贡献
+
+1.  Fork 本仓库
+2.  新建 Feat_xxx 分支
+3.  提交代码
+4.  新建 Pull Request
+
+
+#### 特技
+
